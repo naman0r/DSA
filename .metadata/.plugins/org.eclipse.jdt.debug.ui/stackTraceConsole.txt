@@ -1,0 +1,21 @@
+
+    public NimGameGUI(int totalRows) {  //GUI constructor. Basically creates the window and game. 
+        frame = new JFrame("Nim Game");  //name that appears on the top of the window. Defining previously declared object
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  //allows user to close window after game is over. 
+        frame.setLayout(new BorderLayout());  // sets a layout manager for JFrame. Allows us to place things north south east west or center wifthin the frame 
+
+        label = new JLabel("Nim Game");  // Label at top of the window, within the window
+        frame.add(label, BorderLayout.NORTH); //adding label defined in the above line to align to the north of window. 
+
+        rowsSticks = new int[totalRows];  // array that keep track of the number of stones in different rows. 
+        this.createRowButtons(0, totalRows);  // calling method defined below.  Creates a button for each row because row size can change and user needs to be able to remove stones from every row.  
+
+        stonesPanel = new StonesPanel(totalRows);  //defining an instance of StonesPanel class, created to help recursively visualize stones....
+        frame.add(stonesPanel, BorderLayout.CENTER);  //asking to position this panel of 'stones' at the center of frame, or window. 
+        stonesPanel.setRowsSticks(rowsSticks);  //method defined in class below. 
+
+        frame.pack();
+        frame.setVisible(true);
+        //JButton button2 = new JButon("
+Intsructions here");
+    }
